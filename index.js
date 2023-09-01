@@ -68,4 +68,9 @@ io.on("connection", (socket) => {
     socket.to(proyecto).emit("tarea eliminada", tarea);
   });
 
+  socket.on("actualizar tarea", (tarea) => {
+    const proyecto = tarea.proyecto._id;
+    socket.to(proyecto).emit("tarea actualizada", tarea);
+  });
+
 });
